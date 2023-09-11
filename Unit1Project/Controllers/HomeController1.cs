@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Unit1Project.Models;
 
 namespace Unit1Project.Controllers
 {
@@ -8,5 +9,23 @@ namespace Unit1Project.Controllers
         {
             return View();
         }
+
+
+        [HttpPost]
+        public IActionResult CalculateAge(Birthdate model)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.FV = model.CalculateAge();
+            }
+            else
+            {
+                ViewBag.FV = 0;
+            }
+            return View(model);
+        }
+
+
+
     }
 }
