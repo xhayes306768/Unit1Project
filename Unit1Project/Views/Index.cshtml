@@ -1,24 +1,26 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    
 *@
+@model Birthdate 
 @{
+    ViewData["Title"] = "Age Calculator"; 
 }
 
-<h1> </h1>
+<h1>Calculate Age </h1>
 
-<form asp-action="Index" method="post">
-    <div asp-validation-summary="All">
-        <label asp-for="MonthlyInvestment">Monthly Investment:</label> <input asp-for="MonthlyInvestment" />
+<form asp-controller="Home" asp-action="CalculateAge" method="post">
+
+    <div class="form-group">
+
+    <label for="BirthDate">Enter your birthdate:</label>
+
+
+
+    <input type="date" class="form-control" id="BirthDate" name="BirthDate"  asp-for="BirthDate" required>
+
     </div>
-    <div>
-        <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label> <input asp-for="YearlyInterestRate" />
-    </div>
-    <div>
-        <label asp-for="Years">Number of Years:</label> <input asp-for="Years" />
-    </div>
-    <div>
-        <label>Future Value:</label>
-        <label>@ViewBag.FV.ToString("c2")</label>
-    </div> <button type="submit">Calculate</button> <a asp-action="Index">Clear</a>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+
 </form>
 

@@ -1,12 +1,14 @@
 ﻿namespace Unit1Project.Models
-{
-    public class BirthDate
+{/// <summary>
+/// 
+/// </summary>
+    public class Birthdate
     {
         public DateTime BirthDate { get; set; }
         public int Age => CalculateAge();
 
 
-        private int CalculateAge()
+        public int CalculateAge()
         {
             var today = DateTime.Today;
             var age = today.Year - BirthDate.Year;
